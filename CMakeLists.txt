@@ -20,6 +20,9 @@ include( detectCacheSize )
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 set(CMAKE_C_FLAGS_NOPANTS "${CMAKE_C_FLAGS_NOPANTS} -O3 -DNDEBUG -DCCNxTransport_DISABLE_VALIDATION -DLIBRTA_DISABLE_VALIDATION -DTransportLibrary_DISABLE_VALIDATION")
 
+include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include)
+include_directories(/usr/lib/jvm/java-8-openjdk-amd64/include/linux)
+
 include_directories(${PROJECT_SOURCE_DIR}
                     ${PROJECT_SOURCE_DIR}/ccnx/transport/transport_rta ${PROJECT_BINARY_DIR}/ccnx)
 include_directories($ENV{CCNX_DEPENDENCIES}/include)

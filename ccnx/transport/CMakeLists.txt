@@ -94,6 +94,8 @@ set(COMMON_SRCS
 	common/transport_MetaMessage.c
     common/ccnx_StackConfig.c
     common/ccnx_ConnectionConfig.c
+    common/transport_MetaMessage_wrap.c
+    common/transport_wrap.c
 	)
 
 source_group(common FILES ${COMMON_SRCS})
@@ -183,6 +185,9 @@ set(TRANSPORT_RTA_SOURCE_FILES
 
 add_library(ccnx_transport_rta         STATIC ${TRANSPORT_RTA_SOURCE_FILES})
 add_library(ccnx_transport_rta.shared  SHARED ${TRANSPORT_RTA_SOURCE_FILES})
+
+target_link_libraries(ccnx_transport_rta.shared ${LIBPARC_LIBRARIES})
+target_link_libraries(ccnx_transport_rta.shared ${CCNX_COMMON_LIBRARIES})
 
 set_target_properties(ccnx_transport_rta.shared PROPERTIES
   C_STANDARD 99
